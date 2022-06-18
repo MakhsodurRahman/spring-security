@@ -2,17 +2,16 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.MakhsodurRahman</groupId>
-	<artifactId>spring-security</artifactId>
+	<groupId>com.makhsodur</groupId>
+	<artifactId>spring-security-demo</artifactId>
 	<version>1.0</version>
 	<packaging>war</packaging>
 
-	<name>spring-security</name>
-	<url>http://maven.apache.org</url>
+	<name>spring-security-demo</name>
 
 	<properties>
-		<springframework.version>4.3.9.RELEASE</springframework.version>
-		<springsecurity.version>4.2.3.RELEASE</springsecurity.version>
+		<springframework.version>5.0.2.RELEASE</springframework.version>
+		<springsecurity.version>5.0.0.RELEASE</springsecurity.version>
 
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
@@ -20,7 +19,7 @@
 
 	<dependencies>
 
-		<!-- Spring -->
+		<!-- Spring MVC support -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
@@ -28,25 +27,28 @@
 		</dependency>
 
 		<!-- Spring Security -->
-		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-web</artifactId>
-			<version>${springsecurity.version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-config</artifactId>
-			<version>${springsecurity.version}</version>
-		</dependency>
-		
+		<!-- spring-security-web and spring-security-config -->
 		
 		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-taglibs </artifactId>
-			<version>${springsecurity.version}</version>
-		</dependency> 
-
+		    <groupId>org.springframework.security</groupId>
+		    <artifactId>spring-security-web</artifactId>
+		    <version>${springsecurity.version}</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>org.springframework.security</groupId>
+		    <artifactId>spring-security-config</artifactId>
+		    <version>${springsecurity.version}</version>
+		</dependency>	
+		
+		<!-- Add Spring Security Taglibs support -->
+		<dependency>
+		    <groupId>org.springframework.security</groupId>
+		    <artifactId>spring-security-taglibs</artifactId>
+		    <version>${springsecurity.version}</version>
+		</dependency>	
+		
+		
 		<!-- Servlet, JSP and JSTL support -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
@@ -72,25 +74,25 @@
 			<version>3.8.1</version>
 			<scope>test</scope>
 		</dependency>
+
 	</dependencies>
 
+	<!-- TO DO: Add support for Maven WAR Plugin -->
 
 	<build>
-		<finalName>springsecuritydemo</finalName>
-
+		<finalName>spring-security-demo</finalName>
+	
 		<pluginManagement>
 			<plugins>
 				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-war-plugin</artifactId>
-					<version>3.2.0</version>
-					<configuration>
-						<failOnMissingWebXml>false</failOnMissingWebXml>
-					</configuration>
-				</plugin>
+					<!-- Add Maven coordinates (GAV) for: maven-war-plugin -->
+				    <groupId>org.apache.maven.plugins</groupId>
+				    <artifactId>maven-war-plugin</artifactId>
+				    <version>3.2.0</version>					
+				</plugin>						
 			</plugins>
 		</pluginManagement>
-
 	</build>
+
 
 </project>
